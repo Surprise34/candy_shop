@@ -1,0 +1,12 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Магазин сладостей
+{% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}
+		<h1>Привет, {{user.username}}</h1>
+		<h2>Пожалуйста, переходи к списку всех сладостей и выбирай</h2>
+	{% else %}
+		<h1>Привет! Чтобы совершать покупки, тебе необходимо войти или зарегистрироваться</h1>	
+	{% endif %}	
+{% endblock %}

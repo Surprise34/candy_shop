@@ -1,0 +1,24 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Информация о {{sweet.title}}
+{% endblock %}
+{% block content %}
+	<h1>{{sweet.title}}</h1>
+	<table border="3" cellpadding="10" bordercolor= "blue">
+		<tr>
+   			<td>Тип</td>
+   			<td>Изготовитель</td>
+  			<td>Цена за одну штуку</td>
+   			<td>Цена за 100 грамм</td>			
+   		</tr>
+   		<tr>
+   			<td>{{sweet.typeOfSweet}}</td>
+   			<td><a id="first" href="{% url 'manufacturer_detail' sweet.manufacturer.id %}">{{sweet.manufacturer}}</a></td>
+  			<td>{{sweet.price_for_one}}</td>
+   			<td>{{sweet.price_weight}}</td>			
+   		</tr>
+   	</table>
+   	
+   		<a style="color:black;font-weight:600;font-size:250%" href="{% url 'sweet_buy' sweet.id %}">Купить</a>
+   	
+{% endblock %}

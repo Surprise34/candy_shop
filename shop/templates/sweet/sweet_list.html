@@ -1,0 +1,40 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Список сладостей
+{% endblock %}
+{% block content %}
+	<h1> Список сладостей </h1>
+	<table border="3" cellpadding="10" bordercolor= "blue">
+		<tr>
+    		<td color="white">Название</td>
+   			<td>Тип</td>
+  			<td>Цена за одну штуку</td>
+   			<td>Цена за 100 грамм</td>			
+   		</tr>
+		{% for sweet in sweets %}
+		<tr>
+			<td><a id="first" href="{% url 'sweet_detail' sweet.id %}">{{sweet.title}}</a></td>
+			<td>{{sweet.typeOfSweet}}</td>
+			<td>{{sweet.price_for_one}}</td>
+			<td>{{sweet.price_weight}}</td>
+		</tr>
+		{% endfor %}
+	</table>		
+	<div class="pagination">
+    <span class="step-links">
+        {% if sweets.has_previous %}
+            <a href="?page={{ sweets.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ sweets.number }} of {{ sweets.paginator.num_pages }}.
+        </span>
+
+        {% if sweets.has_next %}
+            <a href="?page={{ sweets.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
+

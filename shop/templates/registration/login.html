@@ -1,0 +1,20 @@
+{% extends "shop_base.html" %}
+{% block title %}Войти{% endblock %}
+{% block content %}
+
+<h1>Войдите используя свой логин и пароль</h1>
+
+<form method="post" action="/accounts/login/">
+{% csrf_token %}
+<table>
+  {{ form.as_table }}
+</table>
+
+<input type="submit" value="Войти" />
+</form>
+<form>
+<input type="button" value="Зарегистрироваться" onClick='location.href="/accounts/register"'>
+</form>
+
+
+{% endblock %}

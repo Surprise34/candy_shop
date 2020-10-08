@@ -1,0 +1,35 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Список изготовителей
+{% endblock %}
+{% block content %}
+	<h1> Список изготовителей </h1>
+	<table border="3" cellpadding="10" bordercolor= "blue">
+		<tr>
+    		<td color="white">Название</td>
+   			<td>Страна</td>	
+   		</tr>
+		{% for manufacturer in manufacturers %}
+		<tr>
+			<td><a id="first" href="{% url 'manufacturer_detail' manufacturer.id %}">{{manufacturer.name}}</a></td>
+			<td>{{manufacturer.country}}</td>
+		</tr>
+		{% endfor %}
+	</table>		
+	<div class="pagination">
+    <span class="step-links">
+        {% if manufacturers.has_previous %}
+            <a href="?page={{ manufacturers.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ manufacturers.number }} of {{ manufacturers.paginator.num_pages }}.
+        </span>
+
+        {% if manufacturers.has_next %}
+            <a href="?page={{ manufacturers.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

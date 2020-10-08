@@ -1,0 +1,7 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Недостаточно средств
+{% endblock %}
+{% block content %}
+	<h1>{{user.username}}, у вас недостаточно средств для этой покупки</h1>
+{% endblock %}

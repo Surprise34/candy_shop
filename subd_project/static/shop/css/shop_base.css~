@@ -1,0 +1,98 @@
+body{
+	background-image: url(/static/shop/background.jpg);
+	background-repeat: repeat;
+	line-height: 2;
+	word-spacing: 5px; 
+}
+h1{
+	text-align: center;
+	font-family: 'Arial Black';
+	font-size: 250%;
+	font-style:italic;
+	color: #450202;
+	text-shadow: white 1px 1px 0, white -1px -1px 0,
+					white -1px 1px 0, white 1px -1px; 
+}
+
+table{
+	background: black;
+	opacity: 0.9;
+}
+
+div{
+	font-weight: 600;
+	color: yellow;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,
+					black -1px 1px 0, black 1px -1px;
+	font-style: italic;
+}
+
+#first {
+	color:red;
+	word-spacing: normal;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+p {
+	font-weight: 600;
+	color: coral;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,
+					black -1px 1px 0, black 1px -1px;
+}
+
+td {
+	font-weight: 600;
+	color: white;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,
+					black -1px 1px 0, black 1px -1px;
+	
+}
+
+a.disabled {
+    pointer-events: none; 
+    cursor: default;  
+    color: coral; 
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Times New Roman';
+	font-size: 250%;
+	font-style:italic;
+	color: coral;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,
+					black -1px 1px 0, black 1px -1px;
+}
+
+
+
+
+
+

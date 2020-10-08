@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/shop/css/shop_base.css" />	
+		<title>
+		{% block title%}
+		{% endblock %}
+		</title>	
+	</head>
+	<body>
+		<ul>
+			<li><a href="/">Главная</a></li>
+			<li><a href="/sweet/list/">Список сладостей</a></li>
+			<li><a href="/manufacturer/list/">Список изготовителей</a></li>
+			<li><a href="/contact/">Обратная связь</a></li>		  
+			<li style="float:right">
+				{% if user.is_authenticated %}
+			  		<a class="active" href="/accounts/logout">Выйти</a>
+				{% else %}
+					<a class="active" href="/accounts/login">Войти</a>
+	   			{% endif %}
+			</li>
+			<li style="float:right">
+				{% if user.is_authenticated %}
+					<a href="{% url 'profile_detail' user.id %}">{{user.username}}</a>
+				{% endif %}
+			</li>
+			<li style="float:right">
+				{% if user.is_authenticated %}
+					<a class="disabled">{{user.profile.balance}}</a>
+				{% endif %}
+			</li>
+			{% if user.id is not 1 %}
+			<li style="float:right">
+				{% if user.is_authenticated %}
+					<a class="disabled" style="color:white">Баланс:</a>
+				{% endif %}
+			</li>
+			{% endif %}			
+		</ul>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>

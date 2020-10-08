@@ -1,0 +1,19 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Информация о {{manufacturer.name}}
+{% endblock %}
+{% block content %}
+	<h1>{{manufacturer.name}}</h1>
+	<table border="3" cellpadding="10" bordercolor= "blue">
+		<tr>
+   			<td>Страна</td>
+   			<td>Контактный адрес</td>
+  			<td>Адрес Производства</td>   					
+   		</tr>
+   		<tr>
+   			<td>{{manufacturer.country}}</td>
+   			<td>{{manufacturer.contact_address}}</td>
+  			<td>{{manufacturer.manufacturers_address}}</td>		
+   		</tr>
+   	</table>
+{% endblock %}

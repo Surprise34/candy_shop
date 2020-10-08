@@ -1,0 +1,25 @@
+{% extends 'shop_base.html' %}
+{% block title %}
+	Купить {{sweet.title}}
+{% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}	
+		<form method="post">
+			{% csrf_token %}
+			{{form.non_field_errors }}
+			<div>
+				<label for="id_price1">Количество в штуках:</label>
+				{{ form.price1.errors }}
+				{{ form.price1 }}
+			</div>
+			<div>
+				<label for="id_price2">Количество в граммах (минимум 100):</label>
+				{{ form.price2.errors }}
+				{{ form.price2 }}
+			</div>
+			<input type="submit" value="Оплатить"/>		
+		</form>
+	{% else %}
+		<h1>Войдите или зарегистрируйтесь, чтобы совершать покупки</h1>
+	{% endif %}
+{% endblock %}

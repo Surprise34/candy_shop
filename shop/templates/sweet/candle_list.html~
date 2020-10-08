@@ -1,0 +1,11 @@
+<html>
+	<head>		
+	</head>
+	<body>
+		{% for candle in candles %}
+			<div>
+			{{candle.title}}
+			</div>
+		{% endfor %}
+	</body>
+</html>

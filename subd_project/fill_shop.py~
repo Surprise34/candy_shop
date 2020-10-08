@@ -1,0 +1,73 @@
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'subd_project.settings')
+
+import django
+django.setup()
+
+from shop.models import Candle, Manufacturer, Country, TypeOfCandle
+
+def fill():
+	"russia_country = add_country('Россия')"
+	belarus_country = add_country(u'Белоруссия')
+	vaflya_type = add_typeOfCandle(u'Вафля')
+	Zavod = add_man(
+		name=u'Завод',
+		contact_address=u'Москва, ул. Пушкина',
+		manufacturers_address=u'Московская обл., Химки',
+		country=belarus_country
+	)
+	add_candle(
+		title= u'Вафля1',
+		price=1.25,
+		sctructure=u'Шоколад',
+		description=u'Вкусная вафля',
+		manufacturer=Zavod,
+		typeOfCandle=vaflya_type
+	)
+	
+	for m in Manafacturer.objects.all():
+		for c in Candle.objects.all():
+			print (str(m),str(c))
+
+	
+
+def add_candle(title, price, structure, description, manufacturer, typeOfCandle):
+	c = Candle.objects.get_or_create(
+		title=title, 
+		typeOfCandle=typeOfCandle, 
+		manufacturer=manufacturer
+	)[0]
+	c.price_for_one=price
+	c.structure=structure
+	c.description=description
+	c.save()
+	return c
+
+def add_man(name, contact_address, manufacturers_address, country):
+	m = Manufacturer.objects.get_or_create(
+		name=name,
+		manufacturers_address=manufacturers_address,
+		country=country
+	)[0]
+	m.contact_address=contact_address
+	m.save()
+	return m
+
+def add_typeOfCandle(name):
+	ty = TypeOfCandle.objects.get_or_create(name=name)
+	ty.save()
+	return ty
+	
+def add_country(name):
+	c=Country.objects.get_or_create(name=name)[0]
+	c.save()
+	return c 
+	
+if __name__ == '__main__':
+	print('starting shop fill script')
+	fill()	
+	
+	
+	
+	
+
